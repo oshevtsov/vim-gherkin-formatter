@@ -2,7 +2,7 @@
 
 import { read, write, Document } from "gherkin-io";
 import { FormatOptions } from "gherkin-formatter";
-import { Command } from "commander";
+import commander, { Command } from "commander";
 
 const optionsFormatter: FormatOptions = {
   separateStepGroups: true,
@@ -10,7 +10,7 @@ const optionsFormatter: FormatOptions = {
   indentation: "  ",
 };
 
-const program = new Command();
+const program: commander.Command = new Command();
 
 program
   .version("0.1.0")
@@ -18,7 +18,7 @@ program
   .description("Gherkin formatter CLI", {
     filepath: "Input file path",
   })
-  .action((filepath) => {
+  .action((filepath: string) => {
     read(filepath)
       .then((doc: Document[]) => {
         write(filepath, doc[0], optionsFormatter);
