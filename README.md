@@ -2,17 +2,22 @@
 
 A small CLI to autoformat Gherkin feature files.
 
-## Installing locally
+## Prerequisites
 
-```sh
-npm -g install --prefix ~/.local ./
-```
+In order to install and use the formatter, it is required to have NodeJS
+runtimen environment installed.
 
-or alternatively with `yarn`
+## Building the formatter
 
-```sh
-yarn global add --prefix ~/.local ./
-```
+In order to build the formatter, follow these steps:
+
+1. Clone the repo to your machine
+2. Go into the repo directory and execute `npm install`
+3. When the previou step finishes, execute `npm run build`
+4. Install the formatter locally into the folder which exists in `$PATH`, e.g.
+   to install into `~/.local/bin` execute `npm install -g ./ --prefix ~/.local`
+
+The last step will create symbolic links to the artifacts of the build step.
 
 ## How to use
 
