@@ -9,7 +9,7 @@ program
   .version("0.1.0")
   .arguments("<filepath>")
   .description("Gherkin formatter CLI", {
-    filepath: "Input file path",
+    filepath: "Input file path or pattern to search for.",
   })
   .action(formatFile)
   .parse(process.argv);

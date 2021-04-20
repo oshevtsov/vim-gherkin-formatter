@@ -9,8 +9,8 @@ const optionsFormatter: FormatOptions = {
 
 export const formatFile = (filepath: string) => {
   read(filepath)
-    .then((doc: Document[]) => {
-      write(filepath, doc[0], optionsFormatter);
+    .then((docs: Document[]) => {
+      docs.forEach((doc) => write(doc.uri, doc, optionsFormatter));
     })
     .catch((err: Error) => {
       console.log(err.message);
