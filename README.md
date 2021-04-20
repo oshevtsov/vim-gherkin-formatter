@@ -5,7 +5,7 @@ A small CLI to autoformat Gherkin feature files.
 ## Prerequisites
 
 In order to install and use the formatter, it is required to have NodeJS
-runtimen environment installed.
+runtime environment installed.
 
 ## Building the formatter
 
@@ -27,7 +27,14 @@ After installation one can simply call it as a CLI script
 vim-gherkin-formatter my_file.feature
 ```
 
-and it will overwrite the unformatted file with its formatted version.
+One can even specify a pattern to look for, e.g.
+
+```sh
+vim-gherkin-formatter *.feature
+```
+
+to format multiple files. This will overwrite the unformatted file(s) with
+their formatted version.
 
 ### Autoformat in Vim/Neovim
 

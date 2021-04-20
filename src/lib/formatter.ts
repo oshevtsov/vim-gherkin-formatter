@@ -7,12 +7,14 @@ const optionsFormatter: FormatOptions = {
   indentation: "  ",
 };
 
-export const formatFile = (filepath: string) => {
-  read(filepath)
-    .then((docs: Document[]) => {
-      docs.forEach((doc) => write(doc.uri, doc, optionsFormatter));
-    })
-    .catch((err: Error) => {
-      console.log(err.message);
-    });
+export const formatFile = (filepaths: string[]) => {
+  filepaths.forEach((filepath) => {
+    read(filepath)
+      .then((docs: Document[]) => {
+        docs.forEach((doc) => write(doc.uri, doc, optionsFormatter));
+      })
+      .catch((err: Error) => {
+        console.log(err.message);
+      });
+  });
 };

@@ -7,9 +7,9 @@ const program: commander.Command = new Command();
 
 program
   .version("0.1.0")
-  .arguments("<filepath>")
+  .arguments("<filepaths...>")
   .description("Gherkin formatter CLI", {
-    filepath: "Input file path or pattern to search for.",
+    filepaths: "Input file path(s) or pattern to search for.",
   })
   .action(formatFile)
   .parse(process.argv);
