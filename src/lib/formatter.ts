@@ -1,5 +1,4 @@
-import { read, write, Document } from "gherkin-io";
-import { FormatOptions } from "gherkin-formatter";
+import { read, write, Document, FormatOptions } from "gherkin-io";
 
 const optionsFormatter: FormatOptions = {
   separateStepGroups: true,

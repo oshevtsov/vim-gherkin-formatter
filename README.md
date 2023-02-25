@@ -78,39 +78,3 @@ augroup END
 After this, reload Vim/Neovim so that changes are sourced. The above defines a
 `:GherkinFormat` command and a mapping to it, `<F4>`, which are available only
 when editing the `*.feature` Gherkin files.
-
-## Support for empty table cell values
-
-The default implementation of a `TableCell` parser in `gherkin-ast` does not
-allow empty table cell values, see line 13 in the file
-`./node_modules/gherkin-ast/ast/tableCell.js` and the declaration of a
-`TableCell` interface defined in `./node_modules/gherkin-ast/gherkinObject.d.ts`.
-
-One can allow for empty table cell values by modifying the `parse` class method
-inside `./node_modules/gherkin-ast/ast/tableCell.js` (lines 12-17) from
-
-```js
-    static parse(obj) {
-        if (!obj || !obj.value) {
-            throw new TypeError("The given object is not a TableCell!");
-        }
-        return new TableCell(obj.value);
-    }
-```
-
-to
-
-```js
-    static parse(obj) {
-        if (!obj) {
-            throw new TypeError("The given object is not a TableCell!");
-        }
-        if (!obj.value) {
-            obj.value = "";
-        }
-        return new TableCell(obj.value);
-    }
-```
-
-Rerun `npm run build` again and it should work (no need to reinstall the package
-since it uses symlinks).
